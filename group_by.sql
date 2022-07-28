@@ -26,9 +26,10 @@ FROM jobs
   JOIN roles ON jobs."roleId" = roles.id
 WHERE jobs.active = true
 GROUP BY roles.name
-ORDER BY "maximumSalary" ASC --
-  -- bonus
-  --
+ORDER BY "maximumSalary" ASC;
+--
+-- bonus
+--
 SELECT schools.name AS school,
   courses.name AS course,
   count(educations."userId") AS "studentsCount",
@@ -42,4 +43,4 @@ GROUP BY schools.name,
   courses.name,
   educations.status
 ORDER BY "studentsCount" DESC
-LIMIT 3
+LIMIT 3;
